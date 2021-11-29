@@ -20,7 +20,8 @@
 import argparse
 import os
 
-from render_bitmaps import check_dependencies, render_category
+from .dependencies import Dependencies
+from .render_category import *
 
 
 def print_help():
@@ -32,7 +33,7 @@ def print_help():
     print("┌──────────────────────────────────────────────────┐")
     print("│ Usage                                            │")
     print("├──────────────────────────────────────────────────┤")
-    print("│ $ [./]render-bitmaps-verbose.py                  │")
+    print("│ $ render_svg_icons                               │")
     print("│       [--help]                                   │")
     print("│       [--base_dpi BASE_DPI]                      │")
     print("│       [--categories [CATEGORIES]]                │")
@@ -216,8 +217,11 @@ def do(args):
         print_help()
         return None
 
-    check_dependencies(args)
-    
+    Dependencies(
+        inkscape_path = args.inkscape_path,
+        optipng_path = args.optipng_path,
+        output_path = args.output_path)
+
     if args.individual_icons is None:
         print("\nNo arguments provided; processing listed sources:\n")
         for icon_category in args.categories:
@@ -268,7 +272,7 @@ def print_result(result):
     return
 
 
-def __main__():
+def main():
 
     # This is the main function
     print_result(do(build_parser().parse_args()))

@@ -17,8 +17,9 @@
 # or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License
 # for more details.
 
-from dependencies import OptiPngPath
 import subprocess
+
+from .dependencies import OptiPngPath
 
 class PngFile:
 

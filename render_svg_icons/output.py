@@ -18,7 +18,8 @@
 # for more details.
 
 import os
-from render import Render
+
+from .render import Render
 
 class Output:
 

@@ -17,8 +17,9 @@
 # or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License
 # for more details.
 
-from png import PngFile
 import subprocess
+
+from .png import PngFile
 
 class Render:
 

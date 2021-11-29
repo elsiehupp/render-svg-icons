@@ -17,9 +17,9 @@
 # or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License
 # for more details.
 
-from pathlib import Path
-
 import os
+
+from pathlib import Path
 
 class InkscapePath(Path):
 

@@ -17,8 +17,9 @@
 # or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License
 # for more details.
 
-from output import Output
 import xml.sax
+
+from .output import Output
 
 class ParseSvg(xml.sax.ContentHandler):
     #

@@ -19,7 +19,7 @@
 
 import os
 
-from parse_svg import ParseSvg
+from .parse_svg import ParseSvg
 
 def render_category(args, category_to_render):
 
