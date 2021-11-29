@@ -1,5 +1,3 @@
-# `render-svg-icons`
-
 `render-svg-icons` is a python script for rendering SVG icons to PNG icons in various sizes. While it runs on both Linux and macOS, it currently uses a specific SVG template and a folder structure based on [the XDG Icon Theme Specification](https://specifications.freedesktop.org/icon-theme-spec/latest/).
 
 # Provenance
