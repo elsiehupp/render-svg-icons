@@ -19,6 +19,7 @@
 
 import argparse
 import os
+import sys
 
 from .dependencies import Dependencies
 from .render_category import *
@@ -160,13 +161,36 @@ def build_parser():
         action='store_true',
         help="show this help message and exit"
     )
-    parser.add_argument(
-        '--inkscape_path',
-        type=str,
-        nargs=1,
-        default = '/usr/bin/inkscape',
-        help="path of Inkscape executable (if the script can't find it)"
-    )
+    if sys.platform.startswith('linux'):
+        parser.add_argument(
+            '--inkscape_path',
+            type=str,
+            nargs=1,
+            default = '/usr/bin/inkscape',
+            help="path of Inkscape executable (if the script can't find it)"
+        )
+        parser.add_argument(
+            '--optipng_path',
+            type=str,
+            nargs=1,
+            default = '/usr/bin/optipng',
+            help="path of OptiPNG executable (if the script can't find it)"
+        )
+    elif sys.platform.startswith('darwin'):
+        parser.add_argument(
+            '--inkscape_path',
+            type=str,
+            nargs=1,
+            default = '/Applications/Inkscape.app/Contents/MacOS/inkscape',
+            help="path of Inkscape executable (if the script can't find it)"
+        )
+        parser.add_argument(
+            '--optipng_path',
+            type=str,
+            nargs=1,
+            default = '/usr/local/bin/optipng',
+            help="path of OptiPNG executable (if the script can't find it)"
+        )
     parser.add_argument(
         '--individual_icons',
         type=str,
@@ -177,13 +201,6 @@ def build_parser():
         '--list_categories',
         action='store_true',
         help="list categories of icons to choose from and exit"
-    )
-    parser.add_argument(
-        '--optipng_path',
-        type=str,
-        nargs=1,
-        default = '/usr/bin/optipng',
-        help="path of OptiPNG executable (if the script can't find it)"
     )
     parser.add_argument(
         '--output_path',

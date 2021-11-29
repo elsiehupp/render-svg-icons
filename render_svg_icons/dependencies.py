@@ -18,6 +18,7 @@
 # for more details.
 
 import os
+import sys
 
 from pathlib import Path
 
@@ -51,9 +52,13 @@ class Dependencies:
         output_path: str):
 
         # assert ('linux' in sys.platform), "This code runs on Linux only."
-        assert (os.path.isfile(inkscape_path)), "Expected to find Inkscape at " + inkscape_path + ", but file does not exist."
-        assert (os.path.isfile(optipng_path)), "Expected to find OptiPNG at " + optipng_path + " but file does not exist."
-        assert (os.path.isdir(output_path)), "Expected to find output directory at " + output_path + ", but directory does not exist."
+        if sys.platform.startswith('linux'):
+            assert (os.path.isfile(inkscape_path)), "Expected to find Inkscape at " + inkscape_path + ", but file does not exist." + "\nInstall Inkscape with, e.g., 'apt install inkscape' in order to proceed."
+            assert (os.path.isfile(optipng_path)), "Expected to find OptiPNG at " + optipng_path + " but file does not exist." + "\nInstall OptiPNG with, e.g., 'apt install optipng' in order to proceed."
+        elif sys.platform.startswith('darwin'):
+            assert (os.path.isfile(inkscape_path)), "Expected to find Inkscape at " + inkscape_path + ", but file does not exist." + "\nInstall Inkscape with, e.g., 'brew install inkscape' in order to proceed."
+            assert (os.path.isfile(optipng_path)), "Expected to find OptiPNG at " + optipng_path + " but file does not exist." + "\nInstall OptiPNG with, e.g., 'brew install optipng' in order to proceed."
+        # assert (os.path.isdir(output_path)), "Expected to find output directory at " + output_path + ", but directory does not exist."
 
         self._inkscape_path = inkscape_path
         self._optipng_path = optipng_path
