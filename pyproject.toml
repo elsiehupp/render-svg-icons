@@ -1,7 +1,7 @@
 [tool.poetry]
 name = "render-svg-icons"
 version = "0.1.0"
-description = "A script for rendering SVG icons to PNG in various sizes"
+description = "Python script to render SVG icons to PNG icons in various sizes"
 authors = ["GNOME icon developers", "Moka Icon Theme developers", "Yaru Icon Theme developers", "Elsie Hupp <github@elsiehupp.com>"]
 license = "GPL-3.0-or-later"
 maintainers = ["Elsie Hupp <github@elsiehupp.com>"]

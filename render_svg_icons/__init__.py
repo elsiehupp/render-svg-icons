@@ -84,7 +84,7 @@ def print_help():
     print("│                                                  │")
     print("│ --output_path OUTPUT_PATH                        │")
     print("│                                                  │")
-    print("│   output directory (by default '../../Suru')     │")
+    print("│   output directory (by default '.')              │")
     print("│                                                  │")
     print("│ --scaling_factors [SCALING_FACTORS]              │")
     print("│                                                  │")
@@ -206,8 +206,8 @@ def build_parser():
         '--output_path',
         type=str,
         nargs=1,
-        default = '../../Suru',
-        help="output directory (by default '../../Suru')"
+        default = '.',
+        help="output directory (by default '.')"
     )
     parser.add_argument(
         '--scaling_factors',
