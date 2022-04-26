@@ -130,3 +130,8 @@ dmypy.json
 
 # filesystem clutter
 .DS_Store
+.DS_Store
+.idea
+
+# Output of test-script
+output*.svg
